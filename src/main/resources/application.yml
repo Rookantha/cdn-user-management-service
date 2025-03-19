@@ -1,0 +1,25 @@
+server:
+  port: 8091
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/userDB
+
+  kafka:
+    bootstrap-servers: localhost:9092  # Change this to your Kafka broker
+    consumer:
+      group-id: user-sync-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.contentnexus.user.management.service.model.UserEvent
+        spring.json.use.type.headers: false  # Change back to true if needed
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/cdn
