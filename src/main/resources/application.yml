@@ -7,7 +7,7 @@ spring:
       uri: mongodb://localhost:27017/userDB
 
   kafka:
-    bootstrap-servers: localhost:9092  # Change this to your Kafka broker
+    bootstrap-servers: localhost:9092
     consumer:
       group-id: user-sync-group
       auto-offset-reset: earliest
@@ -22,4 +22,4 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/cdn
+          issuer-uri: http://localhost:8080/realms/contentnexus

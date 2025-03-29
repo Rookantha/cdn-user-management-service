@@ -1,5 +1,6 @@
 package com.contentnexus.user.management.service.controller;
 
+
 import com.contentnexus.user.management.service.model.UserProfile;
 import com.contentnexus.user.management.service.service.UserService;
 import org.springframework.http.HttpStatus;
