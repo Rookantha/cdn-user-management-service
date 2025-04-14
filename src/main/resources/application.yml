@@ -2,6 +2,17 @@ server:
   port: 8091
 
 spring:
+  application:
+    name: user-management-service
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        enabled: true
+        service-name: ${spring.application.name}
+        port: 8090
   data:
     mongodb:
       uri: mongodb://localhost:27017/userDB
